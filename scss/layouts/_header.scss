@@ -1,0 +1,32 @@
+.header {
+    background: $color-white;
+    width: 100%;
+    padding: 31px 32px;
+
+    &--desktop {
+        display: none;
+    }
+    img {
+        max-width: 100px;
+        max-height: 20px;
+    }
+
+    @media (min-width: 1024px) {
+        background: inherit;
+        padding: 0;
+
+        &--desktop {
+            display: block;
+            margin-block-end: 132px;
+        }
+
+        &--mobile {
+            display: none;
+        }
+
+        img {
+            min-width: 158px;
+            min-height: 33px;
+        }
+    }
+}

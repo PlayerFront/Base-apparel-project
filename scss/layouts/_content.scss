@@ -1,0 +1,69 @@
+.content {
+    display: flex;
+    flex-direction: column;
+
+    &__text {
+        order: 2;
+        padding: 64px 32px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        background: $gradient-white;
+    }
+
+    &__title {
+        margin-block-end: 16px;
+    }
+
+    &__title-highlight {
+        color: $color-pink-400;
+        font-weight: $font-weight-light;
+    }
+
+    &__image {
+        order: 1;
+
+        img {
+            width: 100vw;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        flex-direction: row;
+        width: fit-content;
+        justify-self: center;
+
+        &__text {
+            order: 1;
+            background: url('../images/bg-pattern-desktop.svg') center / cover no-repeat, $gradient-white;
+            display: flex;
+            text-align: left;
+            min-width: 830px;
+        }
+
+        &__title {
+            margin-block-end: 14px;
+        }
+
+        &__description {
+            margin-block-end: 30px;
+        }
+
+        &__image {
+            order: 2;
+            width: 610px;
+            min-height: 100%;
+        }
+    }
+}
+
+.content__text-container {
+    @media (min-width: 1024px) {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        max-width: 444px;
+        transform: translateX(-6%);
+    }
+}

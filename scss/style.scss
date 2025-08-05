@@ -1,0 +1,19 @@
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
+
+@import 'base/normalize';
+@import 'base/typography';
+
+@import 'layouts/header';
+@import 'layouts/content';
+@import 'components/form';
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+
+    @media (min-width: 1024px) {
+        max-width: 1940px;
+        min-height: 100vh;       
+    }
+}

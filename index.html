@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend Mentor | Base Apparel coming soon page</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+</head>
+
+<body>
+    <div class="container">
+        <header class="header header--mobile">
+            <img src="images/logo.svg" class="logo" alt="Base Apparel">
+        </header>
+        <main class="content">
+            <section class="content__text">
+                <div class="content__text-container">
+                    <header class="header header--desktop">
+                        <img src="images/logo.svg" class="logo" alt="Base Apparel">
+                    </header>
+                    <h1 class="content__title"><span class="content__title-highlight">WE'RE</span><br>COMING<br> SOON
+                    </h1>
+                    <p class="content__description">Hello fellow shoppers! We're currently building our new fashion
+                        store.
+                        Add your email below to stay up-to-date with announcements and our launch deals.</p>
+                    <form class="email-form">
+                        <input class="email-form__input" type="email" placeholder="Email Adress"
+                            aria-label="Submit email">
+                        <button class="email-form__button" type="submit">
+                            <img src="images/icon-arrow.svg" alt="" aria-hidden="true ">
+                        </button>
+                        <span class="error-message">
+                        </span>
+                    </form>
+                </div>
+            </section>
+            <section class="content__image">
+                <picture>
+                    <source media="(max-width: 768px)" srcset="images/hero-mobile.jpg">
+                    <img src="images/hero-desktop.jpg" alt="Fashion model" loading="lazy">
+                </picture>
+            </section>
+        </main>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.querySelector(".email-form");
+            const input = document.querySelector(".email-form__input");
+            const button = document.querySelector(".email-form__button");
+            const errorMessage = document.querySelector(".error-message");
+
+            const validateEmail = (email) => {
+                const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+                return re.test(email);
+            }
+
+            const handleSubmit = (e) => {
+                e.preventDefault();
+                const email = input.value.trim();
+
+                if (!validateEmail(email)) {
+                    form.classList.add("email-form--error");
+                    errorMessage.textContent = 'Please provide a valid email';
+                    errorMessage.style.display = 'block';
+                } else {
+                    form.classList.remove('email-form--error');
+                    errorMessage.style.display = 'none';
+                    alert('Thank you for subscribing');
+                }
+            }
+
+            button.addEventListener('click', handleSubmit);
+            form.addEventListener('submit', handleSubmit);
+
+            input.addEventListener('input', () => {
+                if (form.classList.contains('email-form--error')) {
+                    form.classList.remove('email-form--error');
+                    errorMessage.style.display = 'none';
+                }
+            });
+
+        })
+    </script>
+</body>
+
+</html>
